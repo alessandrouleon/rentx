@@ -25,7 +25,6 @@ export async function ensureAuthenticated(request: Request, response: Response, 
         if (!user) {
             throw new AppError("User thos not exists!", 401);
         }
-
         next();
 
     } catch {
