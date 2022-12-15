@@ -28,5 +28,33 @@
 # instalar o express-async-errors 
 # yarn add express-async-errors
 
+# ESSE COMANDO REMOVE UM CONTAINER
+# docker-compose down -v --rmi local
+
+# Instalando o jest para testar aplicação
+# yarn add jest @types/jest -D
+# Apos instalação iniciar o jest
+# yarn jest--init
+# instalar o ts-jest -D
+# Descomentar "// preset: undefined," no arquivo jest alterat para preset: "ts-jest",
+# descomentar o   testMatch: [ "**/__tests__/**/*.[jt]s?(x)","**/?(*.)(spec|test).[tj]s?(x)" ], altere para   testMatch: ["**/*/spec.ts"],
+
+# descomentar  o // bail: 0, e colocar como bail: true, 'para no primeiro erro'
+# mudar no jest.config
+#  moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths),
+# Importar no jest.config
+# import { pathsToModuleNameMapper } from "ts-jest";
+# import { compilerOptions } from "./tsconfig.json";
+
+# Mudar   "strict": true, PARA   "strict": false,
+
+# mudar no tsconfig.json  "baseUrl": "./src", para "baseUrl": "." e da reload na aplicacao.
+
+# Adicionar uma linha no package.json rodar a primeira vez para criar usuario administrador
+#  "seed:admin": "ts-node-dev src/shared/infra/typeorm/seed/admin.ts"
+# yarn seed:admin
+
+
+
 
 

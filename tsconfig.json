@@ -9,7 +9,7 @@
     "outDir": "./dist",
     "rootDir": "./src",
     "sourceMap": true,
-    "strict": true,
+    "strict": false,
     "strictPropertyInitialization": false,
     "baseUrl": "./src",
     "paths": {
