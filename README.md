@@ -55,6 +55,7 @@
 # yarn seed:admin
 
 
-
+# INSTAPAR O dayjs para trabalhar com data
+# yar add dayjs
 
 
