@@ -5,14 +5,14 @@ import { Car } from "../entities/Car";
 
 
 class CarsRepository implements ICarsRepository {
-    private repository: Repository<Car>;
-
+    private carRepository: Repository<Car>;
+    
     constructor() {
-        this.repository = getRepository(Car);
+        this.carRepository = getRepository(Car);
     }
 
     async create({ name, category_id, daily_rate, description, fine_amount, license_plate, brand, specifications, id }: ICreateCarDTO): Promise<Car> {
-        const car = this.repository.create({
+        const car = this.carRepository.create({
             name,
             category_id,
             daily_rate,
@@ -24,18 +24,18 @@ class CarsRepository implements ICarsRepository {
             id
         });
 
-        await this.repository.save(car);
+        await this.carRepository.save(car);
         return car;
     }
 
     async findByLicensePlate(license_plate: string): Promise<Car | undefined> {
-        const car = await this.repository.findOne({ license_plate });
+        const car = await this.carRepository.findOne({ license_plate });
         return car;
     }
 
 
     async findAlvailable(brand?: string, category_id?: string, name?: string): Promise<Car[]> {
-        const carsQuery = this.repository
+        const carsQuery = this.carRepository
             .createQueryBuilder("c")
             .where("available = :available", { available: true });
 
@@ -53,14 +53,19 @@ class CarsRepository implements ICarsRepository {
     }
 
     async findById(id: string): Promise<Car | undefined> {
-       const checkById = await this.repository.findOne(id);
-       return checkById;
+        const checkById = await this.carRepository.findOne(id);
+        return checkById;
     }
 
-   async updateAvailable(id: string, available: boolean): Promise<void> {
-        const checkById = await this.repository.findOne(id);
+    async updateAvailable(id: string, available: boolean): Promise<void> {
+        const checkById = await this.carRepository
+            .createQueryBuilder()
+            .update()
+            .set({ available })
+            .where("id = :id")
+            .setParameters({ id })
+            .execute();
     }
-
 }
 
 export { CarsRepository }
