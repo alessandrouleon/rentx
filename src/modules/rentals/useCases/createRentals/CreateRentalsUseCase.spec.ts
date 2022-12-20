@@ -4,9 +4,11 @@ import { expect, jest, test } from '@jest/globals';
 import { AppError } from "@shared/error/AppError";
 import dayjs from "dayjs";
 import { DateProvider } from "@shared/container/provider/DayjsProvider/implementations/DateProvider";
+import { CarsRepositoryInMemory } from "@modules/cars/repositories/in-memory/CarsRepositoryInMemory";
 
-let dayjsDateProvider: DateProvider;
+let dateProvider: DateProvider;
 let rentalsRepositoryInMemory: RentalsRepositoryInMemory;
+let carsRepositoryInMemory: CarsRepositoryInMemory;
 let createrentalsUseCase: CreateRentalsUseCase;
 
 
@@ -15,10 +17,11 @@ describe("Create Rentals", () => {
     const dayAdd24Hors = dayjs().add(1, "day").toDate();
 
     beforeEach(() => {
-        dayjsDateProvider = new DateProvider();
+        dateProvider = new DateProvider();
         rentalsRepositoryInMemory = new RentalsRepositoryInMemory();
+        carsRepositoryInMemory = new CarsRepositoryInMemory();
         createrentalsUseCase = new CreateRentalsUseCase(
-            rentalsRepositoryInMemory, dayjsDateProvider);
+            rentalsRepositoryInMemory, dateProvider, carsRepositoryInMemory);
 
     });
 
