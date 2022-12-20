@@ -5,7 +5,6 @@ import { IDateProvider } from "@shared/container/provider/DayjsProvider/IDatePro
 import { AppError } from "@shared/error/AppError";
 import { inject, injectable } from "tsyringe";
 
-
 interface IRequest {
   user_id: string;
   car_id: string;
