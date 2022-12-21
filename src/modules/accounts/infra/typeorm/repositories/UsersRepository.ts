@@ -24,10 +24,8 @@ class UsersRepository implements IUsersRepository {
     }
 
     async findByEmail(email: string): Promise<User | undefined> {
-      const existEmail = await this.repository.findOne({ email });
-      console.log("Existe no repository:", existEmail);
-      
-      return existEmail;
+        const existEmail = await this.repository.findOne({ email });
+        return existEmail;
     }
 
     async findById(id: string): Promise<User | undefined> {

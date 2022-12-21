@@ -26,14 +26,23 @@ describe("Create Rentals", () => {
     });
 
     it("should be able create new rental", async () => {
+        const car = await carsRepositoryInMemory.create({
+            name: "Car2",
+            description: "Description Car2",
+            daily_rate: 150,
+            license_plate: "ABCD-100",
+            fine_amount: 21,
+            brand: "carro placa",
+            category_id: "bf163b44-69ba-4d0b-b7c4-1e7a7a40ac43"
+        });
         const rental = await createrentalsUseCase.execute({
             user_id: "12345",
-            car_id: "121212",
+            car_id: car.id,
             expected_return_date: dayAdd24Hors,
         });
        
         expect(rental).toHaveProperty("id");
-        // expect(rental).toHaveProperty("start_date");
+
     });
 
 
