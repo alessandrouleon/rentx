@@ -58,4 +58,11 @@
 # INSTAPAR O dayjs para trabalhar com data
 # yar add dayjs
 
+# INSTALAR NODEMAILER PARA RECUPERAR SENHA POR EMAIL
+# yarn add nodemailer @types/nodemailer -D
+# INSTALAR O HANDLEBAR PARA OTIMIZAR A INTERFACE DO EMAIL
+# yarn add handlebars
+
+
+
 

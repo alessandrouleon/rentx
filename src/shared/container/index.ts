@@ -44,6 +44,7 @@ container.registerSingleton<IRentalsRepository>(
     "RentalsRepository",
     RentalsRepository
 )
+
 container.registerSingleton<IUsersTokensRepository>(
     "UsersTokensRepository",
     UsersTokensRepository
