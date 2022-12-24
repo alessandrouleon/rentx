@@ -6,6 +6,7 @@ import { AppError } from "@shared/error/AppError";
 import { inject, injectable } from "tsyringe";
 import { v4 as uuidV4 } from "uuid";
 import { resolve } from "path";
+import { IUsersRepository } from "@modules/accounts/repositories/IUsersRepository";
 
 
 @injectable()
@@ -13,7 +14,7 @@ class SendForgotPasswordMailUseCase {
 
     constructor(
         @inject("UsersRepository")
-        private usersRepository: UsersRepository,
+        private usersRepository: IUsersRepository,
 
         @inject("UsersTokensRepository")
         private usersTokensRepository: IUsersTokensRepository,

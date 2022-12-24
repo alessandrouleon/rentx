@@ -5,7 +5,7 @@ import { IUsersRepository } from "../../../repositories/IUsersRepository";
 
 class UsersRepository implements IUsersRepository {
 
-    private repository: Repository<User>;
+    repository: Repository<User>;
 
     constructor() {
         this.repository = getRepository(User);

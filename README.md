@@ -63,6 +63,13 @@
 # INSTALAR O HANDLEBAR PARA OTIMIZAR A INTERFACE DO EMAIL
 # yarn add handlebars
 
+# ALTERAR O O ARQUIVO JEST.CONFIG.TS
+# MUDAR   collectCoverage: false, para   collectCoverage: true,
+# mudar   collectCoverageFrom: undefined, para   collectCoverageFrom: ['<rootDir>/src/modules/**/useCases/*.ts'],
 
+
+# mudar // coverageDirectory: undefined, para    coverageDirectory: 'coverage',
+
+# descolentar e deixar apenas o coverageReporters: [ "text-summary", "lcov",],
 
 

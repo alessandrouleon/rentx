@@ -5,7 +5,7 @@ import { IUsersRepository } from "../IUsersRepository";
 
 class UsersRepositoryInMemory implements IUsersRepository {
 
-    users: User[] = [];
+   private users: User[] = [];
 
     async create({ name, email, driver_license, password }: ICreateUsersDTO): Promise<void> {
         const user = new User();
