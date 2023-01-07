@@ -18,7 +18,12 @@ container.registerInstance<IMailProvider>(
     new EtherealMailProvider()
 )
 
+const disKStorage = {
+    local: LocalStorageProvider,
+    s3: S3StorageProvider
+}
+
 container.registerSingleton<IStorageProvider>(
     "StorageProvider",
-    S3StorageProvider
-)
+    disKStorage[process.env.disk]
+) 

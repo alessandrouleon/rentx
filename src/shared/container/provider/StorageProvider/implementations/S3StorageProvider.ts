@@ -10,23 +10,23 @@ class S3StorageProvider implements IStorageProvider {
 
     constructor() {
         this.client = new S3({
-            region: process.env.AWS_BUCKET_REGION,
+            region: `${process.env.AWS_BUCKET_REGION}`,
         });
     }
 
     async save(file: string, folder: string): Promise<string> {
-        const originalName = resolve(upload.tmpFolder, folder);
+        const originalName = resolve(upload.tmpFolder, file);
 
         const fileContent = await fs.promises.readFile(originalName);
 
-        const ContentType = mime.getType(originalName);
+        const contentType = mime.getType(originalName);
 
         await this.client.putObject({
             Bucket: `${process.env.AWS_BUCKET}/${folder}`,
             Key: file,
             ACL: "public-read",
             Body: fileContent,
-            ContentType,
+            ContentType: contentType,
         }).promise();
 
         await fs.promises.unlink(originalName);

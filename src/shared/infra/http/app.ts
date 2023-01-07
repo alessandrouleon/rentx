@@ -1,7 +1,9 @@
-import 'reflect-metadata'
+import 'reflect-metadata';
+import 'dotenv/config';
 import express, { NextFunction, Request, Response } from 'express';
 import "express-async-errors";
 import { routes } from './routes/index';
+
 
 import sweggerUI from "swagger-ui-express";
 import sweggerFile from "../../../swegger.json";
